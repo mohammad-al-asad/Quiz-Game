@@ -6,19 +6,24 @@ import Quiz from "./pages/Quiz";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./Contexts/AuthContext";
+import PrivetRoute from "./Components/PrivetRoute";
+import PublicRoute from "./Components/PublicRouter";
 
 function App() {
   return (
     <Router>
+      <AuthProvider>
       <Layout>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/signUp" element={<SignUp/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/quiz" element={<Quiz/>}/>
-          <Route path="/result" element={<Result/>}/>
+          <Route path="/signUp" element={<PublicRoute Component={<SignUp/>}/>}/>
+          <Route path="/login" element={<PublicRoute Component={<Login/>}/>}/>
+          <Route path="/quiz" element={<PrivetRoute Component={<Quiz/>}/>}/>
+          <Route path="/result" element={<PrivetRoute Component={<Result/>}/>}/>
         </Routes>
       </Layout>
+      </AuthProvider>
     </Router>
   );
 }

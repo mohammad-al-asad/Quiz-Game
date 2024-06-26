@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-function Checkbox({className, children }) {
+function Checkbox({ className, children, ...rest }) {
   return (
     <label className={className}>
       {" "}
-      <input type="checkbox" /> <span>{children}</span>{" "}
+      <input type="checkbox" {...rest} /> <span>{children}</span>{" "}
     </label>
   );
 }

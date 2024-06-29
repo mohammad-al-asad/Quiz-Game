@@ -19,8 +19,8 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/signUp" element={<PublicRoute Component={<SignUp/>}/>}/>
           <Route path="/login" element={<PublicRoute Component={<Login/>}/>}/>
-          <Route path="/quiz" element={<PrivetRoute Component={<Quiz/>}/>}/>
-          <Route path="/result" element={<PrivetRoute Component={<Result/>}/>}/>
+          <Route path="/quiz/:id" element={<PrivetRoute Component={<Quiz/>}/>}/>
+          <Route path="/result/:id" element={<PrivetRoute Component={<Result/>}/>}/>
         </Routes>
       </Layout>
       </AuthProvider>

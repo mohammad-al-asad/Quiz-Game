@@ -9,7 +9,7 @@ function PrivetRoute({ Component }) {
       {currentUser ? (
         Component
       ) : (
-        <Navigate to={"/"} />
+        <Navigate to={"/login"} />
       )}
     </>
   );

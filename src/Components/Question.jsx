@@ -1,15 +1,19 @@
 import classes from "../styles/Question.module.css";
 import Answers from "./Answers";
 
-function Question() {
+function Question({answers=[]}) {
   return (
-    <div className={classes.question}>
+    answers.map((question,index)=>(
+      
+      <div key={index} className={classes.question}>
       <div className={classes.qtitle}>
         <span className="material-icons-outlined"> help_outline </span>
-        Here goes the question from Asad?
+        {question.title}
       </div>
-      <Answers/>
+      <Answers input={false} options={question.options}/>
     </div>
+      
+  ))
   );
 }
 

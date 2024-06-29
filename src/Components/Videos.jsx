@@ -13,11 +13,11 @@ function Videos() {
         <InfiniteScroll
           dataLength={videos.length}
           hasMore={hasMore}
-          next={() => setStart(start + 8)}
+          next={() => setStart((prev)=>prev + 8)}
         >
           {videos.map((video) =>
             video.noq > 0 ? (
-              <Link to="/quiz" key={video.youtubeID}>
+              <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID}>
                 <Video
                   id={video.youtubeID}
                   title={video.title}
@@ -36,10 +36,10 @@ function Videos() {
         </InfiniteScroll>
       )}
       {!loading && videos.length < 0 && (
-        <div className="center">No videos found</div>
+        <div className="center">No videos found!</div>
       )}
       {loading && <div className="center">Loading...</div>}
-      {error && <div className="center">There was an error</div>}
+      {error && <div className="center">There was an error!</div>}
     </div>
   );
 }

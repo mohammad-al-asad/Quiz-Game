@@ -3,7 +3,7 @@ import Answers from "../Components/Answers";
 import MiniPlayer from "../Components/MiniPlayer";
 import ProgressBar from "../Components/ProgressBar";
 import useQuestions from "../hooks/useQuestions";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../Contexts/AuthContext";
 import { getDatabase, ref, set } from "firebase/database";
 import _ from "lodash";
@@ -31,6 +31,7 @@ function reducer(state, action) {
 
 function Quiz() {
   const { id } = useParams();
+  const {state} = useLocation()
   const { loading, error, questions } = useQuestions(id);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [newQuestions, dispatch] = useReducer(reducer, initialState);
@@ -95,7 +96,7 @@ function Quiz() {
             options={newQuestions[currentQuestion].options}
             handleCheck={handleCheck}
           />
-          <MiniPlayer />
+          <MiniPlayer id={id} title={state.title}/>
           <ProgressBar
             next={next}
             prev={prev}

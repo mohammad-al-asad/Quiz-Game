@@ -1,8 +1,22 @@
 /* eslint-disable react/prop-types */
+import { useRef, useState } from "react";
 import classes from "../styles/ProgressBar.module.css";
 import Button from "./Button";
 
 function ProgressBar({ next, prev, percentage, submit }) {
+  const [tootip, setTooltip] = useState(false);
+  const tooltipRef = useRef();
+
+  function toogleTooltip() {
+    if (tootip) {
+      setTooltip(false);
+      tooltipRef.current.style.display = "none";
+    } else {
+      setTooltip(true);
+      tooltipRef.current.style.left = `calc(${percentage}% - 65px)`;
+      tooltipRef.current.style.display = "block";
+    }
+  }
 
   return (
     <div className={classes.progressBar}>
@@ -10,9 +24,13 @@ function ProgressBar({ next, prev, percentage, submit }) {
         <span className="material-icons-outlined"> arrow_back </span>
       </div>
       <div className={classes.rangeArea}>
-        <div className={classes.tooltip}>{percentage}% Complete!</div>
+        <div ref={tooltipRef} className={classes.tooltip}>
+          {percentage}% Complete!
+        </div>
         <div className={classes.rangeBody}>
           <div
+            onMouseOver={toogleTooltip}
+            onMouseOut={toogleTooltip}
             className={classes.progress}
             style={{ width: percentage + "%" }}
           ></div>

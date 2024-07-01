@@ -9,8 +9,8 @@ function Nav() {
       <ul>
         <li>
           <Link to="/" className={classes.brand}>
-            <img src=".././images/logo-bg.png" alt="Mohammad Al Asad" />
-            <h3>Mohammad Al Asad</h3>
+            {/* <img src=".././images/logo-bg.png" alt="Quiz Game" /> */}
+            <h3>Quiz Game</h3>
           </Link>
         </li>
       </ul>

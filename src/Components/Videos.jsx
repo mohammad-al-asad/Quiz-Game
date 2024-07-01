@@ -17,7 +17,7 @@ function Videos() {
         >
           {videos.map((video) =>
             video.noq > 0 ? (
-              <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID}>
+              <Link to={`/quiz/${video.youtubeID}`} key={video.youtubeID} state={{title:video.title}}>
                 <Video
                   id={video.youtubeID}
                   title={video.title}

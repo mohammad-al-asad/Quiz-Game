@@ -1,8 +1,13 @@
-# React + Vite
+# Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Go Live: https://quiz-game-r19c.onrender.com/ <br/>
+Its A React Firebase Quiz App <br/>
 
-Currently, two official plugins are available:
+<img src="./public/images/Quiz-game.png"/><br/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<b>What I used in this priject:</b>
+
+1. React for FrontEnd Devlopment.
+2. FireBase as Real Time Database.
+3. Authentication using FireBase.
+4. React Player for YT player.
